@@ -1,14 +1,10 @@
-# WebRTC Translate
+# Language Joint
 
-Highly experimental (read: "barely working") app that uses WebRTC API and WebSpeech API to provide almost (read: "not really") real-time translations during a video call. At the moment it works only in Chrome, though there's an experimental Web Speech Recognition API implementation in Firefox Nightly, so it's possible that it will work in Firefox soon as well. The UI was inspired by [iTranslate](http://www.itranslateapp.com) app. If you want to host it yourself, you'll need a Google Translate API key.
+This was just a fun project built off https://github.com/szimek/webrtc-translate. A video demonstration of how it works is at https://www.youtube.com/watch?v=fQTPuv_dJaE. You select the language you're interested in learning and it'll pair you with a native speaker of that language who you can then chat to. Anything you write or speak (if you have speech recognition turned on) will be translated into your partners language. Users can also create their own room as in the original project. Chrome only (due to web speech API) and there seem to be plenty of bugs (as it didn't work for some people I tried using it with).
 
+The frontend is similar to the original project with some minor changes, on the backend users are stored in a MySQL database and the table is queried every few seconds to see if there are two users that can be matched. You will want a way of deleting users from the database who close the window while in the waiting room - in my phpMyAdmin on my server I had a query that would delete any user where updated_at < NOW() - interval 5 second.
 
-
-You can see a short demo video [here](https://youtu.be/Tv8ilBOKS2o) or you can try it out yourself at https://webrtc-translate.herokuapp.com - once you open this page it will redirect you to a URL with randomly generated room ID. Open the same URL on another computer and you should see and hear the other person. If you really want to, you can try it out on a single computer as well, but you'll have to turn off audio to avoid nasty feedback and miss speech synthesis :/
-
-You can select the language you speak in from the select box on the top left. Click the flag button under the video to start speech recognition. The speech recognition will stop automatically once you stop speaking or press the flag button again.
-
-The previous version had speech recognition always on, but due to the way Web Speech API works it was rather unstable. This version is still available in [continuous](https://github.com/szimek/webrtc-translate/tree/continuous) branch and there's a short screencast of it available [here](http://www.youtube.com/watch?v=R8ejjVAZweg).
+Trying to get this working was more of a learning exercise for me so some parts of the code may be messy.
 
 ## Prerequisites
 
