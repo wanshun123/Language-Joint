@@ -1,0 +1,66 @@
+{{#if status}}
+  <div class="row">
+    <div class="col-sm-12 text-left">
+    {{!--.Chat status: <b>{{status}}</b>--}}
+    </div>
+  </div>
+{{/if}}
+<div class="row">
+  <div class="col-sm-3 text-center">
+    <div class="lamguage language-local">
+      <div class="language-select">
+        {{select-language action=(action (mut localSpeechLanguage)) content=languagesToToggle selectedLanguage=localSpeechLanguage}}
+      </div> {{!--.language-select.end--}}
+    </div> {{!--.language-local.end--}}
+  </div> {{!--.col-sm-3.end--}}
+  <div class="col-sm-9 text-left">
+    {{#if currentUser.directToRoom}}
+      {{#unless status}}
+      Chat status: <b>Waiting for someone to join your room</b>
+      <p>Give your friend the URL (in your address bar) to this room</p>
+      {{else}}
+      Chat status: <b>{{status}}</b>
+      {{/unless}}
+    {{else}}
+    Chat status: <b>{{status}}</b>
+     <p>Partners native language: <b>{{currentUser.remoteLanguage}}</b></p>
+    {{/if}}
+  </div> {{!--.col-sm-6.end--}}
+</div> {{!--.row.end--}}
+
+{{audio-chat roomId=currentUser.roomId availableLocales=languagesToToggle action=(action (mut status))}}
+
+<br>
+<hr>
+
+<left>
+<div class="row">
+  <div class="col-sm-12">
+
+      {{#if currentUser.directToRoom}}
+
+      <p><b>How it works:</b> Use the dropdown menu in the top left to change languages. Whatever you write in that language will
+      be translated into the language your partner has in their dropdown menu. If you click the button to start speech recognition,
+      whatever you speak will also be translated into your partners language.</p>
+
+      {{else}}
+
+      <p><b>How it works:</b> Use the dropdown menu in the top left to switch between the 2 languages (You've got {{currentUser.localLanguage}}
+      selected now). Whatever you write in your selected language will be translated into the other language. If you click the button to start
+      speech recognition, whatever you speak will also be translated.</p>
+
+      {{/if}}
+
+  </div>
+</div>
+</left>
+
+<br>
+
+<left>
+<div class="row">
+  <div class="col-sm-12">
+    <a href="#" {{action "returnHome"}} class="home-link">Return to homepage</a>
+  </div>
+</div>
+</left>

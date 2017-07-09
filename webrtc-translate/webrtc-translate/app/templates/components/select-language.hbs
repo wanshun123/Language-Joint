@@ -1,0 +1,6 @@
+<label class="sr-only">{{label}}</label>
+<select class="form-control" {{action "selectionChanged" on="change"}}>
+  {{#each content as |language|}}
+    <option value={{language.key}}>{{language.label}}</option>
+  {{/each}}
+</select>

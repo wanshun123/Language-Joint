@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-sm-12">
+    {{start-speech-recognition-button
+      isSpeechRecognitionActive=isActive
+      alternateLang=alternateLang
+      classNames="text-align-center"}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-xs-12">
+    {{message-list messages=messages}}
+  </div>
+</div>
+
+<br>
+
+{{#unless currentUser.directToRoom}}
+
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-xs-12 chat-form text-left">
+    <button class="btn btn-danger" {{action "moveToWaitingRoom"}}>Stop</button>
+    <form id="chatForm" class="form-inline" {{action "handleChatMessage" on="submit"}}>
+      <div class="form-group">
+        <label class="sr-only">Chat Message</label>
+        {{input value=chatMessage placeholder="Say something nice..." class="form-control"}}
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+</div>
+
+{{else}}
+
+<div class="row">
+  <div class="col-sm-12 col-md-12 col-xs-12 chat-form text-left">
+    <form id="chatForm" class="form-inline" {{action "handleChatMessage" on="submit"}}>
+      <div class="form-group">
+        <label class="sr-only">Chat Message</label>
+        {{input value=chatMessage placeholder="Say something nice..." class="form-control"}}
+      </div>
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
+</div>
+
+{{/unless}}

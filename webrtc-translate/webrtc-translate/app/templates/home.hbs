@@ -1,0 +1,31 @@
+<div class="col-sm-12 center-div">
+  <h3>Select your native language...</h3>
+  {{select-language action=(action (mut localSpeechLanguage)) content=languages.languages selectedLanguage=localSpeechLanguage}}
+  <h3>Which language are you learning?</h3>
+  {{select-language content=languages.languages action=(action (mut remoteSpeechLanguage)) selectedLanguage=remoteSpeechLanguage}}
+
+  <button id="waitingRoomButton" class="btn btn-primary btn-lg btn-block" {{action "moveToWaitingRoom"}}>Find me a partner!</button>
+
+  <br>
+
+  <div class="row">
+  <p><b>How it works:</b> You'll be paired with a native speaker of the language you're learning, who is also learning your native language. Language Joint is built off the <a href="https://github.com/szimek/webrtc-translate">webrtc-translate github project</a> and uses speech recognition and translation technologies to allow you to converse more easily with your partner and learn faster. <a href="https://www.youtube.com/watch?v=fQTPuv_dJaE">Click here to see a 42 second video of it in action.</a></p>
+  </div>
+
+  <hr>
+
+  <div class="row">
+  <button id="ownRoomButton" class="btn btn-default btn-lg btn-block" {{action "partnerChat"}}>Or, click here to jump into your own room</button>
+  </div>
+
+  <br>
+
+  <div class="row">
+  <p>Rather than be paired with a stranger, you may create your own room - just share the link of your room with your friend.</p>
+  </div>
+
+  <div class="row">
+  <p>Questions? Comments? Bug reports? Please email <u>miles (at) languagejoint (dot) com</u></p>
+  </div>
+
+</div>
