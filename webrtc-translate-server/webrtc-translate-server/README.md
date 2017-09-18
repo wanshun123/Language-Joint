@@ -2,7 +2,7 @@
 
 ## About this repository
 
-This repository contains the code which acts as server side code for (webrtc-translate)[https://github.com/wanshun123/Language-Joint].
+This repository contains the code which acts as server side code for (Langauge-Joint)[https://github.com/wanshun123/Language-Joint].
 
 ## Prerequisites
 
