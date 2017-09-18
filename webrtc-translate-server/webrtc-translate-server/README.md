@@ -1,8 +1,8 @@
-# Webrtc-translate-server
+# Language-Joint
 
 ## About this repository
 
-This repository contains the code which acts as server side code for (webrtc-translate)[https://github.com/szimek/webrtc-translate].
+This repository contains the code which acts as server side code for (webrtc-translate)[https://github.com/wanshun123/Language-Joint].
 
 ## Prerequisites
 
